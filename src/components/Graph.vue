@@ -197,7 +197,6 @@ function zoomed(event) {
 </script>
 
 <template>
-  <button @click="update">Update</button>
   <div className="graph">
     <div className="svgContainer">
       <svg ref="svgRef" width="1280" height="720"></svg>

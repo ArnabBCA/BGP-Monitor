@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref, toRaw, watch } from "vue";
 import Graph from "./Graph.vue";
+import Sankey from "./Sankey.vue";
 import Plotly from "plotly.js-dist";
 
 const filteredMessages = ref([]);
@@ -153,7 +154,7 @@ const graphData = () => {
             )
           ) {
             // D3.js requires source and target for links.
-            tempLinks.push({ source: source, target: target });
+            tempLinks.push({ source: source, target: target, value: 1 });
           }
         }
       });
@@ -324,6 +325,7 @@ onMounted(() => {
       </div>
     </div>
     <Graph :nodesArray="nodes" :linksArray="links" />
+    <Sankey :nodesArray="nodes" :linksArray="links" />
     <div class="chart">
       <div ref="plot"></div>
     </div>
